@@ -1,0 +1,29 @@
+<div class="center-container">
+    <h1>Dobrodošli na User Dashboard</h1>
+<h2 class="recipe-heading">Recepti:</h2>
+  <div *ngFor="let recipe of recipes" class="recipe-card">
+    <h3 class="recipe-name">{{ recipe.name }}</h3>
+    <p class="recipe-description">{{ recipe.description }}</p>
+    <button (click)="toggleIngredients(recipe.id)" class="add-cook-button">Prikaži/ sakrij sastojke</button>
+    <button (click)="addToBookmark(recipe.id)" class="add-bookmark-button">Add to Bookmark</button>
+    <ul *ngIf="selectedRecipeId === recipe.id" class="ingredients-list">
+      <li *ngFor="let ingredient of Ingredients" class="ingredient-item">{{ ingredient.name }} - {{ ingredient.quantity }}
+        
+      </li><br><br>
+      
+    </ul>
+    
+  </div>
+  <h1>Bookmarks</h1>
+  <div *ngFor="let recipe of bookmarkrecipes" class="recipe-card"> 
+    <h2>{{ recipe.name }}</h2>
+    <p>{{ recipe.description }}</p>
+    <button (click)="toggleIngredients(recipe.id)" class="add-cook-button">Prikaži/ sakrij sastojke</button>
+    
+    <ul *ngIf="selectedRecipeId === recipe.id" class="ingredients-list">
+        <li *ngFor="let ingredient of Ingredients" class="ingredient-item">{{ ingredient.name }} - {{ ingredient.quantity }}   
+        </li><br><br>
+        
+      </ul>
+  </div>
+</div>

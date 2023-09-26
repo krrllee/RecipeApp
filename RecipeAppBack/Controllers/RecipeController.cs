@@ -51,7 +51,7 @@ namespace RecipeAppBack.Controllers
             }
         }
 
-        [HttpPost("DeleRecipe")]
+        [HttpDelete("DeleRecipe")]
         [Authorize(Roles = "Admin")]
         public IActionResult DeleteRecipe(int id)
         {
@@ -67,7 +67,7 @@ namespace RecipeAppBack.Controllers
         }
 
         [HttpGet("GetIngredients")]
-        [Authorize(Roles = "Admin,Cook,User")]
+       
         public IActionResult Ingredients(int id)
         {
             try
@@ -114,7 +114,6 @@ namespace RecipeAppBack.Controllers
         }
 
         [HttpGet("GetAllRecipes")]
-        [Authorize(Roles ="Admin,Cook,User")]
         public IActionResult GetAllRecipes()
         {
             try
@@ -128,7 +127,7 @@ namespace RecipeAppBack.Controllers
 
         [HttpPost("AddToBookmark")]
         [Authorize(Roles ="User")]
-        public IActionResult AddToBookmark(int id)
+        public IActionResult AddToBookmark([FromBody]int id)
         {
             try
             {
@@ -144,7 +143,7 @@ namespace RecipeAppBack.Controllers
 
         [HttpPost("RemoveFromBookmark")]
         [Authorize(Roles = "User")]
-        public IActionResult RemoveFromBookmark(int id)
+        public IActionResult RemoveFromBookmark([FromBody]int id)
         {
             try
             {

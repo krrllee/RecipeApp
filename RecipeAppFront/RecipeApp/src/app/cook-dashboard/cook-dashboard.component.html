@@ -1,0 +1,41 @@
+<div class="center-container">
+    <h1 class="welcome-heading">Dobrodošli na Cook Dashboard!</h1>
+<h1>Dodaj novi recept:</h1>
+<form (submit)="addRecipe()">
+    <label for="recipeName">Naziv recepta:</label>
+    <input type="text" id="recipeName" name="recipeName" [(ngModel)]="recipeName" required>
+  
+    <label for="description">Opis recepta:</label>
+    <textarea id="description" name="description" [(ngModel)]="description" required></textarea>
+  
+    <h3>Sastojci:</h3>
+    <div *ngFor="let ingredient of newIngredients; let i = index">
+      <label for="ingredientName{{i}}">Naziv sastojka:</label>
+      <input type="text" id="ingredientName{{i}}" name="ingredientName{{i}}" [(ngModel)]="ingredient.name" required>
+  
+      <label for="ingredientQuantity{{i}}">Kolicina:</label>
+      <input type="text" id="ingredientQuantity{{i}}" name="ingredientQuantity{{i}}" [(ngModel)]="ingredient.quantity" required>
+    </div>
+  
+    <button type="button" (click)="addIngredient()">Dodaj sastojak</button>
+    <button type="submit">Dodaj recept</button>
+  </form>
+  
+
+  
+  <h2 class="recipe-heading">Recepti:</h2>
+  <div *ngFor="let recipe of recipes" class="recipe-card">
+    <h3 class="recipe-name">{{ recipe.name }}</h3>
+    <p class="recipe-description">{{ recipe.description }}</p>
+    <button (click)="toggleIngredients(recipe.id)" class="add-cook-button">Prikaži/ sakrij sastojke</button>
+    
+    <ul *ngIf="selectedRecipeId === recipe.id" class="ingredients-list">
+      <li *ngFor="let ingredient of Ingredients" class="ingredient-item">{{ ingredient.name }} - {{ ingredient.quantity }}
+        
+      </li><br><br>
+      
+    </ul>
+    
+  </div>
+
+</div>

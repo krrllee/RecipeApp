@@ -1,0 +1,155 @@
+h1{
+  text-align: center;
+}
+.center-container {
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Visina kontejnera prema visini prozora */
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Stil za dobrodošlicu */
+.welcome-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Stil za listu kuvara */
+.recipe-heading {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Stil za kartice sa kuvarima */
+.recipe-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+}
+
+.recipe-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Stil za dugme za dodavanje kuvara */
+.add-cook-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.add-cook-button:hover {
+  background-color: #0056b3;
+}
+
+/* Stil za formu za dodavanje kuvara */
+.add-cook-form {
+  display: none;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-cook-form h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Stil za input polja u formi za dodavanje kuvara */
+.form-group {
+  margin-bottom: 20px;
+
+}
+
+.form-group label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Stil za dugme za dodavanje sastojka */
+.add-ingredient-button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.add-ingredient-button:hover {
+  background-color: #218838;
+}
+
+/* Stil za dodatne informacije o sastojcima */
+.ingredients-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ingredient-item {
+  font-size: 16px;
+  margin-bottom: 5px;
+  margin-top: 10px
+}
+
+/* Stil za dugme za zatvaranje forme za dodavanje kuvara */
+.close-button {
+  background-color: #ccc;
+  color: #333;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover {
+  background-color: #999;
+}

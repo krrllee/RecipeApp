@@ -1,0 +1,18 @@
+<!-- home.component.html -->
+
+<h1 class="welcome-heading">Dobrodošli!</h1>
+<div class="recipe-container">
+  <h2 class="recipe-heading">Recepti:</h2>
+  <div *ngFor="let recipe of recipes" class="recipe-card">
+    <h3 class="recipe-name">{{ recipe.name }}</h3>
+    <p class="recipe-description">{{ recipe.description }}</p>
+    <button (click)="toggleIngredients(recipe.id)" class="show-ingredients-button">Prikaži/ sakrij sastojke</button>
+    <ul *ngIf="selectedRecipeId === recipe.id" class="ingredients-list">
+      <li *ngFor="let ingredient of ingredients" class="ingredient-item">{{ ingredient.name }} - {{ ingredient.quantity }}</li>
+    </ul>
+  </div>
+</div>
+<footer class="footer">
+  <button (click)="login()" class="login-button">Prijavi se</button>
+  <button (click)="register()" class="register-button">Registruj se</button>
+</footer>

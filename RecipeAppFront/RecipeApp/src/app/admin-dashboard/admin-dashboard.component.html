@@ -1,0 +1,56 @@
+<div class="center-container">
+    <!-- Vaši elementi ovdje -->
+  
+<h1 class="welcome-heading">Dobrodošli na Admin Dashboard!</h1>
+<h2 class="recipe-heading">Lista Kuvara:</h2>
+<div *ngFor="let cook of cooks" class="recipe-card">
+  <h3 class="recipe-name">{{ cook.userName }}</h3>
+</div>
+
+    <h3>Dodaj novog kuvara:</h3>
+    <form (submit)="addCook()" class="recipe-card">
+      <div class="form-group">
+        <label for="username">Username   </label>
+        <input type="text" id="username" name="username" [(ngModel)]="newCook.username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password   </label>
+        <input type="password" id="password" name="password" [(ngModel)]="newCook.password" required>
+      </div>
+      <button type="submit"lass="add-cook-button">Dodaj</button>
+    </form>
+  
+
+  <h2 class="recipe-heading">Recepti:</h2>
+  <div *ngFor="let recipe of recipes" class="recipe-card">
+    <h3 class="recipe-name">{{ recipe.name }}</h3>
+    <p class="recipe-description">{{ recipe.description }}</p>
+    <button (click)="toggleIngredients(recipe.id)" class="add-cook-button">Prikaži/ sakrij sastojke</button>
+    <button (click)="deleteRecipe(recipe.id)" class="add-cook-button">Obrisi recept</button>
+    <ul *ngIf="selectedRecipeId === recipe.id" class="ingredients-list">
+      <li *ngFor="let ingredient of ingredients" class="ingredient-item">{{ ingredient.name }} - {{ ingredient.quantity }}
+        
+      </li><br><br>
+      <form [formGroup]="ingredientForm" (ngSubmit)="onSubmit(recipe.Id)">
+        <div class="form-group">
+          <label for="ingredientName">Vrsta sastojka:</label>
+          <input type="text" id="ingredientName" formControlName="ingredientName" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="quantity">Količina:</label>
+          <input type="text" id="quantity" formControlName="quantity" class="form-control">
+        </div>
+        <button (click)="addIngredient(recipe.id)" class="add-ingredient-button">Dodaj sastojak</button>
+
+      </form>
+    </ul>
+    
+  </div>
+
+</div> 
+  
+  
+
+
+  
+
