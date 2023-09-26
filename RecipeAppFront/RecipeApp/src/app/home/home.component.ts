@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   recipes!: any[]; // Ovdje trebate definirati odgovarajuću strukturu za recepte
   ingredients: any[] = [];
   selectedRecipeId: number | null = null;
+  searchTerm = '';
+  foundRecipes!: any[]
 
 
   constructor(private http: HttpClient,private router: Router,private cdr: ChangeDetectorRef) {}
@@ -27,10 +29,14 @@ export class HomeComponent implements OnInit {
         console.error('Greška prilikom dobijanja recepata:', error);
       }
     );
+  }
 
+  search() {
+    this.http.get<any[]>(`http://localhost:5192/api/Recipe/Search?searchTerm=${this.searchTerm}`).subscribe((data) => {
+      this.foundRecipes = [];
+      this.foundRecipes = data;
+    });
 
-
-    
   }
 
 

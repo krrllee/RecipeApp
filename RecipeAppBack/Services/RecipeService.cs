@@ -121,5 +121,10 @@ namespace RecipeAppBack.Services
             var bookmark = _recipeRepository.GetFromBookmark(id);
             _recipeRepository.RemoveFromBookmark(bookmark);
         }
+
+        public IEnumerable<Recipe> SearchRecipes(string searchTerm)
+        {
+            return _recipeRepository.SearchRecipes(searchTerm);
+        }
     }
 }

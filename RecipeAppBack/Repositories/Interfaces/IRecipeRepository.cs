@@ -19,5 +19,6 @@ namespace RecipeAppBack.Repositories.Interfaces
         void RemoveFromBookmark(Bookmark bookmark);
         List<Recipe> GetRecipesFromBookmark(int id);
         List<Bookmark> GetBookmarks(int id);
+        IEnumerable<Recipe> SearchRecipes(string searchTerm);
     }
 }

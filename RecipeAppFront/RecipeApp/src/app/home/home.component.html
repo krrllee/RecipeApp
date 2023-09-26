@@ -1,6 +1,21 @@
 <!-- home.component.html -->
 
 <h1 class="welcome-heading">Dobrodošli!</h1>
+<div class="search-container">
+  <input type="text" [(ngModel)]="searchTerm" class="search-input" placeholder="Unesite pojam za pretragu">
+  <button (click)="search()" class="search-button">Pretraži</button>
+</div>
+<ul class="search-info">
+  <li *ngFor="let recipe of foundRecipes">
+    <h3 class="recipe-name">{{ recipe.name }}</h3>
+    <p class="recipe-description">{{ recipe.description }}</p>
+    <button (click)="toggleIngredients(recipe.id)" class="show-ingredients-button">Prikaži/ sakrij sastojke</button>
+    <ul *ngIf="selectedRecipeId === recipe.id" class="ingredients-list">
+      <li *ngFor="let ingredient of ingredients" class="ingredient-item">{{ ingredient.name }} - {{ ingredient.quantity }}</li>
+    </ul>
+  </li>
+  
+</ul>
 <div class="recipe-container">
   <h2 class="recipe-heading">Recepti:</h2>
   <div *ngFor="let recipe of recipes" class="recipe-card">

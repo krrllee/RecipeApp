@@ -29,8 +29,20 @@ export class AdminDashboardComponent implements OnInit {
   selectedRecipeId: number | null = null;
   currentRecipeId: number = -1;
   newIngredients: IngredientDto[] = [];
+  foundRecipes!: any[];
+  searchTerm = '';
+
+
 
   constructor(private http: HttpClient,private formBuilder: FormBuilder) {}
+
+  search() {
+    this.http.get<any[]>(`http://localhost:5192/api/Recipe/Search?searchTerm=${this.searchTerm}`).subscribe((data) => {
+      this.foundRecipes = [];
+      this.foundRecipes = data;
+    });
+
+  }
 
   addIngredientsToRecipe(recipeId: number, ingredientName: string, quantity: string) {
     

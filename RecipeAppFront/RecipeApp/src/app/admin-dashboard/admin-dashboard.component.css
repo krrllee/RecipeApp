@@ -153,3 +153,48 @@ body {
 .close-button:hover {
   background-color: #999;
 }
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.search-info{
+  align-items: center;
+  text-align: center;
+}
+
+.search-info button{
+  background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Stilizacija za input polje */
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  width: 300px; /* Prilagodite širinu prema potrebi */
+}
+
+/* Stilizacija za dugme */
+.search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff; /* Boja dugmeta */
+  color: #fff; /* Boja teksta */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Stilizacija za dugme na hover */
+.search-button:hover {
+  background-color: #0056b3; /* Boja na hover */
+}

@@ -15,9 +15,19 @@ export class CookDashboardComponent implements OnInit {
   selectedRecipeId: number | null = null;
   currentRecipeId: number = -1;
   Ingredients: any[] = [];
+  foundRecipes!: any[];
+  searchTerm = '';
 
 
   constructor(private http: HttpClient) {}
+
+  search() {
+    this.http.get<any[]>(`http://localhost:5192/api/Recipe/Search?searchTerm=${this.searchTerm}`).subscribe((data) => {
+      this.foundRecipes = [];
+      this.foundRecipes = data;
+    });
+
+  }
 
   ngOnInit(): void {
     this.http.get<any[]>('http://localhost:5192/api/Recipe/GetAllRecipes').subscribe(

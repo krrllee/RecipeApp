@@ -101,6 +101,13 @@ namespace RecipeAppBack.Repositories
             _context.SaveChanges();
         }
 
+        public IEnumerable<Recipe> SearchRecipes(string searchTerm)
+        {
+            return _context.Recipes
+             .Where(recipe => recipe.Name.Contains(searchTerm))
+             .ToList();
+        }
+
         public void UpdateRecipe(Recipe recipe)
         {
             _context.Recipes.Update(recipe);

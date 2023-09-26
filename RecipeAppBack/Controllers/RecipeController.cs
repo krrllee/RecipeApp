@@ -18,6 +18,21 @@ namespace RecipeAppBack.Controllers
             _userSevice = userSevice;
         }
 
+
+        [HttpGet("Search")]
+        public IActionResult SearchRecipes(string searchTerm)
+        {
+            try
+            {
+                var recipes = _recipeService.SearchRecipes(searchTerm);
+                return Ok(recipes);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+    
         [HttpPost("AddRecipe")]
         [Authorize(Roles = "Cook")]
         public IActionResult AddRecipe([FromBody] RecipeWithIngredientsDto recipeWithIngredientsDto)
